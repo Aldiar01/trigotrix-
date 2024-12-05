@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigotrix</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('/mnt/data/BABDA1EB-614A-4259-BA04-1F661CD7C9BC.webp');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    table {
+      width: 80%;
+      margin: 50px auto;
+      border-collapse: collapse;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #007BFF;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    tr:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      font-size: 1.2em;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Trigotrix</h1>
+    <p>Таблица значений тригонометрических функций</p>
+  </header>
+  <table>
+    <thead>
+      <tr>
+        <th>Угол (°)</th>
+        <th>Синус</th>
+        <th>Косинус</th>
+        <th>Тангенс</th>
+        <th>Котангенс</th>
+      </tr>
+    </thead>
+    <tbody>
+      <script>
+        // Генерация значений тригонометрических функций
+        function toRadians(degrees) {
+          return degrees * (Math.PI / 180);
+        }
+
+        for (let angle = 0; angle <= 360; angle += 15) {
+          let rad = toRadians(angle);
+          let sin = Math.sin(rad).toFixed(4);
+          let cos = Math.cos(rad).toFixed(4);
+          let tan = Math.tan(rad).toFixed(4);
+          let cot = cos != 0 ? (1 / Math.tan(rad)).toFixed(4) : "∞";
+
+          document.write(`
+            <tr>
+              <td>${angle}</td>
+              <td>${sin}</td>
+              <td>${cos}</td>
+              <td>${tan}</td>
+              <td>${cot}</td>
+            </tr>
+          `);
+        }
+      </script>
+    </tbody>
+  </table>
+  <footer>
+    Aldiar.01
+  </footer>
+</body>
+</html>
